@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Custom Video.js Player</title>
+
+  <!-- Video.js Stylesheet -->
+  <link href="https://vjs.zencdn.net/8.0.0/video-js.css" rel="stylesheet" />
+
+  <!-- Video.js Script -->
+  <script src="https://vjs.zencdn.net/8.0.0/video.min.js"></script>
+
+  <!-- Custom CSS for the Video.js player -->
+  <style>
+    .vjs-custom-skin .vjs-control-bar {
+      background-color: #333; /* Dark background for the control bar */
+    }
+
+    .vjs-custom-skin .vjs-play-control {
+      color: #fff; /* White color for play button */
+    }
+
+    .vjs-custom-skin .vjs-big-play-button {
+      background-color: rgba(0, 0, 0, 0.5); /* Transparent background for play button */
+      border-color: rgba(255, 255, 255, 0.75); /* White border for the big play button */
+    }
+
+    /* Set custom width and height for the player */
+    .vjs-custom-skin {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video.js Player -->
+  <video id="my-player" class="video-js vjs-custom-skin" controls preload="auto" width="640" height="264" poster="https://via.placeholder.com/640x264.png" data-setup="{}">
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>.
+    </p>
+  </video>
+
+  <!-- Video.js Initialization Script -->
+  <script>
+    var player = videojs('my-player', {
+      autoplay: false,
+      loop: false,
+      controls: true,
+      muted: false
+    });
+
+    // Example of adding a custom event listener
+    player.on('ended', function() {
+      console.log('The video has finished playing.');
+    });
+  </script>
+
+</body>
+</html>
